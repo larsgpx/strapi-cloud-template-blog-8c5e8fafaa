@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "template_services",
+  "info": {
+    "singularName": "template-service",
+    "pluralName": "template-services",
+    "displayName": "templateService"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo_plantilla": {
+      "type": "string"
+    },
+    "descripcion_sugerida": {
+      "type": "string"
+    }
+  }
+}
