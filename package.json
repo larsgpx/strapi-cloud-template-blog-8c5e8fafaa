@@ -21,6 +21,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "sbp-google-map-field": "^1.1.1",
     "strapi-plugin-tablify": "^1.0.3",
     "styled-components": "^6.0.0"
   },
