@@ -18,13 +18,14 @@
       "minLength": 3,
       "unique": true,
       "configurable": false,
-      "required": true
+      "required": false
     },
     "email": {
       "type": "email",
       "minLength": 6,
       "configurable": false,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "provider": {
       "type": "string",
@@ -67,7 +68,35 @@
       "configurable": false
     },
     "phoneNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "fullname": {
       "type": "string"
+    },
+    "document": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "birthDate": {
+      "type": "date",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "profilePictureURL": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
