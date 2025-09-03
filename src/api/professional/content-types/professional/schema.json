@@ -26,6 +26,12 @@
     },
     "contactInfo": {
       "type": "json"
+    },
+    "professionalSubCategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::professional-sub-category.professional-sub-category",
+      "inversedBy": "professionals"
     }
   }
 }

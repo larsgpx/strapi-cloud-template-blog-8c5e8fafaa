@@ -598,6 +598,10 @@ export interface ApiProfessionalSubCategoryProfessionalSubCategory
       'oneToOne',
       'api::professional-category.professional-category'
     >;
+    professionals: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::professional.professional'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -633,6 +637,10 @@ export interface ApiProfessionalProfessional
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    professionalSubCategories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::professional-sub-category.professional-sub-category'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
