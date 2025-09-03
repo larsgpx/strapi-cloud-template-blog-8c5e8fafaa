@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "professional_sub_categories",
+  "info": {
+    "singularName": "professional-sub-category",
+    "pluralName": "professional-sub-categories",
+    "displayName": "ProfessionalSubCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "professionalCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::professional-category.professional-category"
+    }
+  }
+}
