@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "professional_categories",
+  "collectionName": "professionals",
   "info": {
-    "singularName": "professional-category",
-    "pluralName": "professional-categories",
-    "displayName": "ProfessionalCategory"
+    "singularName": "professional",
+    "pluralName": "professionals",
+    "displayName": "Professional"
   },
   "options": {
     "draftAndPublish": true
@@ -13,12 +13,19 @@
   "attributes": {
     "name": {
       "type": "string",
+      "required": true
+    },
+    "document": {
+      "type": "string",
       "required": true,
       "unique": true
     },
-    "slug": {
+    "address": {
       "type": "string",
       "required": true
+    },
+    "contactInfo": {
+      "type": "json"
     }
   }
 }

@@ -11,10 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
     },
     "professionalCategory": {
       "type": "relation",

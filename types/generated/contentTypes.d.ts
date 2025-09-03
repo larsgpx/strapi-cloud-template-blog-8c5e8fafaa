@@ -559,10 +559,11 @@ export interface ApiProfessionalCategoryProfessionalCategory
       'api::professional-category.professional-category'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -590,13 +591,48 @@ export interface ApiProfessionalSubCategoryProfessionalSubCategory
       'api::professional-sub-category.professional-sub-category'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     professionalCategory: Schema.Attribute.Relation<
       'oneToOne',
       'api::professional-category.professional-category'
     >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProfessionalProfessional
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'professionals';
+  info: {
+    displayName: 'Professional';
+    pluralName: 'professionals';
+    singularName: 'professional';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String & Schema.Attribute.Required;
+    contactInfo: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    document: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::professional.professional'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1159,6 +1195,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::professional-category.professional-category': ApiProfessionalCategoryProfessionalCategory;
       'api::professional-sub-category.professional-sub-category': ApiProfessionalSubCategoryProfessionalSubCategory;
+      'api::professional.professional': ApiProfessionalProfessional;
       'api::template-service.template-service': ApiTemplateServiceTemplateService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
