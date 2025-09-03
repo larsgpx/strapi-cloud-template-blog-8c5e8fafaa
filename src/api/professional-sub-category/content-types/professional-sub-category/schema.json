@@ -24,6 +24,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::professional-category.professional-category"
+    },
+    "professionals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::professional.professional",
+      "mappedBy": "professionalSubCategories"
     }
   }
 }
