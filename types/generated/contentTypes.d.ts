@@ -538,6 +538,72 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProfessionalCategoryProfessionalCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'professional_categories';
+  info: {
+    displayName: 'ProfessionalCategory';
+    pluralName: 'professional-categories';
+    singularName: 'professional-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::professional-category.professional-category'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProfessionalSubCategoryProfessionalSubCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'professional_sub_categories';
+  info: {
+    displayName: 'ProfessionalSubCategory';
+    pluralName: 'professional-sub-categories';
+    singularName: 'professional-sub-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::professional-sub-category.professional-sub-category'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    professionalCategory: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::professional-category.professional-category'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTemplateServiceTemplateService
   extends Struct.CollectionTypeSchema {
   collectionName: 'template_services';
@@ -1091,6 +1157,8 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::professional-category.professional-category': ApiProfessionalCategoryProfessionalCategory;
+      'api::professional-sub-category.professional-sub-category': ApiProfessionalSubCategoryProfessionalSubCategory;
       'api::template-service.template-service': ApiTemplateServiceTemplateService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
