@@ -19,6 +19,15 @@
     "slug": {
       "type": "string",
       "required": true
+    },
+    "icon": {
+      "type": "string"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
     }
   }
 }

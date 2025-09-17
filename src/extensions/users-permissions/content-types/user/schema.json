@@ -88,7 +88,8 @@
       "type": "enumeration",
       "enum": [
         "Male",
-        "Female"
+        "Female",
+        "Other"
       ]
     },
     "profilePictureURL": {
@@ -96,6 +97,25 @@
       "multiple": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "department": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "userType": {
+      "type": "enumeration",
+      "enum": [
+        "Client",
+        "Professional"
       ]
     }
   }
