@@ -30,6 +30,9 @@
       "relation": "manyToMany",
       "target": "api::professional.professional",
       "mappedBy": "professionalSubCategories"
+    },
+    "icon": {
+      "type": "string"
     }
   }
 }
